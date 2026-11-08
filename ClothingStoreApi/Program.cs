@@ -1,4 +1,5 @@
 using System.Text;
+using System.Security.Cryptography;
 using ClothingStoreApi.Data;
 using ClothingStoreApi.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -7,7 +8,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
-var key = builder.Configuration["Jwt:Key"] ?? throw new Exception("Jwt:Key is missing");
+var key = builder.Configuration["Jwt:Key"] ?? Convert.ToBase64String(RandomNumberGenerator.GetBytes(32));
+builder.Configuration["Jwt:Key"] = key;
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();

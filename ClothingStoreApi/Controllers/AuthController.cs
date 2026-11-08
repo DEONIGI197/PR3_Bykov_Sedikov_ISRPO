@@ -36,7 +36,7 @@ public class AuthController(StoreDbContext db, IPasswordHasher<User> hasher, ICo
         user.PasswordHash = hasher.HashPassword(user, request.Password);
         db.Users.Add(user);
         await db.SaveChangesAsync();
-        return Created($"/api/users/{user.Id}", new { user.Id, user.Login, user.Role });
+        return StatusCode(201, new { user.Id, user.Login, user.Role });
     }
 
     [HttpPost("login")]
