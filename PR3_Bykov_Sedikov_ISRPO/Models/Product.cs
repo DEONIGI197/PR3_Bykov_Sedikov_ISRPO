@@ -1,4 +1,4 @@
-namespace ClothingStoreApi.Models;
+namespace PR3_Bykov_Sedikov_ISRPO.Models;
 
 public class Product
 {

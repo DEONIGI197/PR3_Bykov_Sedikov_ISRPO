@@ -1,7 +1,7 @@
 using System.Text;
 using System.Security.Cryptography;
-using ClothingStoreApi.Data;
-using ClothingStoreApi.Models;
+using PR3_Bykov_Sedikov_ISRPO.Data;
+using PR3_Bykov_Sedikov_ISRPO.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -14,7 +14,7 @@ builder.Configuration["Jwt:Key"] = key;
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddDbContext<StoreDbContext>(options =>
+builder.Services.AddDbContext<ShopDb>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("Store")));
 builder.Services.AddScoped<IPasswordHasher<User>, PasswordHasher<User>>();
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -34,7 +34,7 @@ var app = builder.Build();
 
 using (var scope = app.Services.CreateScope())
 {
-    var db = scope.ServiceProvider.GetRequiredService<StoreDbContext>();
+    var db = scope.ServiceProvider.GetRequiredService<ShopDb>();
     db.Database.EnsureCreated();
 
     if (!db.Products.Any())

@@ -1,9 +1,9 @@
-using ClothingStoreApi.Models;
+using PR3_Bykov_Sedikov_ISRPO.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace ClothingStoreApi.Data;
+namespace PR3_Bykov_Sedikov_ISRPO.Data;
 
-public class StoreDbContext(DbContextOptions<StoreDbContext> options) : DbContext(options)
+public class ShopDb(DbContextOptions<ShopDb> options) : DbContext(options)
 {
     public DbSet<Product> Products => Set<Product>();
     public DbSet<ProductSize> ProductSizes => Set<ProductSize>();

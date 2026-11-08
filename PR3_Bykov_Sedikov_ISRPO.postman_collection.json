@@ -1,6 +1,6 @@
 {
   "info": {
-    "name": "Практическая работа №3 — магазин одежды",
+    "name": "PR3_Bykov_Sedikov_ISRPO",
     "description": "Быков Денис, Седиков Артем. Запускать запросы сверху вниз. Сначала запустить API с переменными Manager__Login и Manager__Password.",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
