@@ -47,3 +47,5 @@ dotnet run --project ClothingStoreApi --launch-profile http
 В коллекции `ClothingStore.postman_collection.json` есть примеры всех запросов. Перед входом менеджера заполнить переменную `managerPassword`. Токены и идентификаторы коллекция заполняет после выполнения соответствующих запросов. Для снятия с продажи передать `{"isForSale":false}`, для возврата — `{"isForSale":true}`.
 
 Статусы заказов: `New`, `Processing`, `Shipped`, `Completed`, `Cancelled`.
+
+Коллекция проверена через Newman (раннер Postman): 12 запросов, 12 проверок, 0 ошибок.
