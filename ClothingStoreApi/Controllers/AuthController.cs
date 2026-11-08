@@ -24,12 +24,13 @@ public class AuthController(StoreDbContext db, IPasswordHasher<User> hasher, ICo
             || string.IsNullOrWhiteSpace(request.Address) || string.IsNullOrWhiteSpace(request.Password)
             || request.Password.Length < 6)
             return BadRequest("Заполните все поля. Пароль должен содержать не менее 6 символов.");
-        if (await db.Users.AnyAsync(x => x.Login == request.Login))
+        var login = request.Login.Trim();
+        if (await db.Users.AnyAsync(x => x.Login == login))
             return Conflict("Такой логин уже занят.");
 
         var user = new User
         {
-            Login = request.Login.Trim(),
+            Login = login,
             Phone = request.Phone.Trim(),
             Address = request.Address.Trim()
         };

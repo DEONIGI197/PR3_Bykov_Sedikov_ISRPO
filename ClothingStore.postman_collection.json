@@ -18,6 +18,10 @@
       "value": ""
     },
     {
+      "key": "managerPassword",
+      "value": ""
+    },
+    {
       "key": "productId",
       "value": "1"
     },
@@ -210,7 +214,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"login\": \"manager\",\n  \"password\": \"Manager123!\"\n}",
+          "raw": "{\n  \"login\": \"manager\",\n  \"password\": \"{{managerPassword}}\"\n}",
           "options": {
             "raw": {
               "language": "json"
